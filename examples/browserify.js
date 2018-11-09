@@ -1,3 +1,6 @@
+
+//写一个颜色随机函数放到words的属性里
+
 var d3 = require("d3"),
     cloud = require("../");
 
@@ -14,6 +17,7 @@ var layout = cloud()
     .fontSize(function(d) { return d.size; })
     .on("end", draw);
 
+
 layout.start();
 
 function draw(words) {
@@ -27,6 +31,8 @@ function draw(words) {
     .enter().append("text")
       .style("font-size", function(d) { return d.size + "px"; })
       .style("font-family", "Impact")
+      .style("font-style","italic")
+      .style("fill","#ff00aa")
       .attr("text-anchor", "middle")
       .attr("transform", function(d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
